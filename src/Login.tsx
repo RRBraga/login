@@ -1,34 +1,45 @@
-import { Box, Button, TextField, Typography } from "@mui/material"
+import { Box, Button, Checkbox, FormControl, FormControlLabel, TextField, Typography} from "@mui/material"
 
 const Login = () => {
   
   return (
     <Box
-    bgcolor="#7159c1"
-    display="flex"
-    flexDirection="column"
+        bgcolor="#7159c1"
+        display="flex"
+        flexDirection="column"
+        minHeight="100vh"
     >
         <Typography 
-            variant="h1" align="center">
+            variant="h6" align="center">
                 Sing in
         </Typography>
         
         <Box
-        bgcolor="#7159c1"
-        display="flex"
-        flexDirection="column"
+            component="form"
+            bgcolor="#7159c1"
+            display="flex"
+            flexDirection="column"
         >
-            <TextField
-                type="email"
-                placeholder="E-mail"
-                variant="outlined"
+            <FormControl>
+                <TextField
+                    type="email"
+                    placeholder="E-mail"
+                    variant="outlined"
+                    required
+                />
+                <TextField
+                    type="password"
+                    placeholder="Password"
+                    variant="outlined"
+                />
+            </FormControl>
+
+            <FormControlLabel
+                control={<Checkbox value="remember" color="primary" required />}
+                label="Remember"
             />
-            <TextField
-                type="password"
-                placeholder="Password"
-                variant="outlined"
-            />
-            <Button variant="contained">Contained</Button>
+
+            <Button type="submit" onClick={() => alert("Entrar")} variant="contained">Login</Button>
         </Box>
     </Box>
   )
